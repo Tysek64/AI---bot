@@ -3,15 +3,18 @@ from discord.ext import commands
 from AI import AI
 import os
 
-bot = commands.Bot(intents = discord.Intents.all(), command_prefix='Hello, ')
+bot = commands.Bot(intents = discord.Intents.all(), command_prefix='A')
 
 @bot.event
 async def on_ready():
   print("Hello, world!")
 
-@bot.listen('on_message')
-async def reply (ctx):
-  await ctx.send(AI(Message.content))
+@bot.command(name='I,')
+async def sendReply (ctx, *, question="ﷺ"):
+  if question != "ﷺ":
+    await ctx.send(AI(question))
+  else:
+    await ctx.send("I couldn't hear you. Could you repeat?")
 
-token = os.environ("TOKEN")
+token = os.environ.get("TOKEN")
 bot.run(token)

@@ -1,5 +1,5 @@
-def AI(putIn):
-  putIn = putIn.lower()
+def AI(text):
+  putIn = text.lower()
   if "you" in putIn:
     if "name" in putIn or "who" in putIn:
       return "My name is Computer."
