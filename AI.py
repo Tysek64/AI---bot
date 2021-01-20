@@ -54,3 +54,21 @@ def AI(text):
       return "It's concerning."
   else:
     return "Indeed."
+
+def emojify (text):
+  returnVal = ""
+  numbers = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+  for i in text:
+    if i.isalpha():
+      returnVal += ":regional_indicator_"
+      returnVal += i.lower()
+      returnVal += ":"
+    elif i.isnumeric():
+      returnVal += ":"
+      returnVal += numbers[int(i)]
+      returnVal += ":"
+    elif i == " ":
+      returnVal += ":blue_square:"
+    else:
+      returnVal += ":flushed:"
+  return returnVal
